@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="userList">
+        <h1>Chats</h1>
+        <div class="tabs">
+            <span class="active">Friends</span>
+            <span>Groups</span>
+        </div>
+        <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="search">
+        </div>
+        <div class="list">
+            <app-messaged-user></app-messaged-user>
+        </div>
+    </div>
+    <div class="chatbox">
+        <div class="chatter card">
+            <app-chatter-header></app-chatter-header>
+        </div>
+        <div class="messages card" #messageBox>
+            <app-message-box [messages]="messages" [user]="userName"></app-message-box>
+        </div>
+        <div class="postMessage card">
+            <app-post-message (msgSendEvent)="sendMessage($event)"></app-post-message>
+        </div>
+    </div>
+    <div class="notifications card"></div>
+</div>

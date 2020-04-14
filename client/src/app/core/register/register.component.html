@@ -1,0 +1,11 @@
+<div class="container">
+    <Form [formGroup]="registerForm" class="register-section" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="First Name" formControlName="firstName">
+        <input type="text" placeholder="Last Name" formControlName="lastName">
+        <input type="text" placeholder="User Name" formControlName="userName">
+        <input type="password" placeholder="Password" formControlName="password">
+        
+        <input type="file" accept="image/*" #imageInput (change)="uploadImage(imageInput)">
+        <button>Register</button>
+    </Form>
+</div>

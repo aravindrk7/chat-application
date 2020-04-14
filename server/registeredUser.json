@@ -1,0 +1,50 @@
+[
+  {
+    "firstName": "Aravind",
+    "lastName": "R",
+    "userName": "aravind_7",
+    "password": "aravind1",
+    "image": "2020-4-12_13-16-16_IMG_20190804_133012.jpg",
+    "lastSeen": "2020-04-14T17:18:52.051Z"
+  },
+  {
+    "firstName": "Lijitha",
+    "lastName": "S",
+    "userName": "lijitha_8",
+    "password": "lijitha1",
+    "image": "2020-4-12_13-17-26_liji.jpg",
+    "lastSeen": "2020-04-14T18:30:45.582Z"
+  },
+  {
+    "firstName": "milan",
+    "lastName": "D",
+    "userName": "milan_9",
+    "password": "milan1",
+    "image": "2020-4-12_13-17-53_milan.jpg",
+    "lastSeen": "2020-04-14T17:15:18.409Z"
+  },
+  {
+    "firstName": "Asha",
+    "lastName": "A",
+    "userName": "asha_6",
+    "password": "asha1",
+    "image": "2020-4-12_13-18-16_asha.jpg",
+    "lastSeen": "online"
+  },
+  {
+    "firstName": "Banu",
+    "lastName": "B",
+    "userName": "banu_5",
+    "password": "banu1",
+    "image": "2020-4-12_18-3-40_banu.jpg",
+    "lastSeen": "2020-04-12T12:33:40.488Z"
+  },
+  {
+    "firstName": "Vaishnavi",
+    "lastName": "S",
+    "userName": "vaishnavi_4",
+    "password": "vaishnavi1",
+    "image": "2020-4-12_19-23-28_vaishu.jpg",
+    "lastSeen": "2020-04-12T18:17:12.241Z"
+  }
+]

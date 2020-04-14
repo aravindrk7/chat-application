@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 5px 20px;
+    overflow-y: auto;
+
+    .user {
+        margin: 5px 0;
+
+        p {
+            color: var(--bg-primary);
+            background: var(--primary-color);
+            float: right;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 0;
+        }
+        span {
+            float: right;
+        }
+    }
+    p {
+        padding: 7px 15px;
+        background: var(--secondary-color);
+        width: fit-content;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+        font-size: 11px;
+        // font-weight: bold;
+        clear: both;
+    }
+    span {
+        font-size: 9px;
+        clear: both;
+        color: var(--text-secondary);
+    }
+}

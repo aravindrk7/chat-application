@@ -1,0 +1,10 @@
+<div class="container">
+    <i class="fa fa-paperclip"></i>
+    <input type="text" placeholder="Type a message here..." value={{message}} (input)="setMessage($event)"
+        (keyup)="$event.keyCode == 13 && sendMessage()">
+    <i class="fa fa-smile"></i>
+    <i class="fa fa-microphone"></i>
+    <button>
+        <i class="fa fa-paper-plane send" (click)="sendMessage()"></i>
+    </button>
+</div>

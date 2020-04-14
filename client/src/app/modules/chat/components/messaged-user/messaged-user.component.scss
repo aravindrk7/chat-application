@@ -1,0 +1,79 @@
+@import "./../../../../../assets/variables";
+.container {
+    height: 100%;
+    overflow: auto;
+
+    .details {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 7px;
+        cursor: pointer;
+        &:hover{
+            background: var(--secondary-color);
+        }
+        .messenger {
+            display: flex;
+            .displayPicture {
+                margin-right: 10px;
+                background: var(--bg-primary);
+                box-shadow: 0 3px 4px var(--shadow);
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+
+                @include center();
+                img {
+                    width: 35px;
+                    border-radius: 50%;
+                    height: 35px;
+                }
+            }
+            .name {
+                padding: 2px 0;
+                h3 {
+                    font-size: 13px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                p {
+                    width: 130px;
+                    font-size: 11px;
+                    color: var(--text-secondary);
+                    font-weight: bold;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    .current-messenger {
+        background: var(--primary-color);
+        color: #fff;
+        &:hover{
+            background: var(--primary-color);
+        }
+        .messenger {
+            .displayPicture {
+                background: var(--primary-color);
+                box-shadow: 0 3px 4px black;
+            }
+        }
+    }
+
+    .msgInfo {
+        display: flex;
+        flex-direction: column;
+        p {
+            color: var(--text-secondary);
+            font-size: 10px;
+        }
+    }
+}
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: transparent;
+}

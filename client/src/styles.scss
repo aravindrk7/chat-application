@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~animate.css/animate.min";
+
+@font-face {
+    font-family: poppins;
+    src: url(assets/fonts/Poppins-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-family: poppins;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: linear-gradient(to bottom right, #3366ff 0%, #003399 117%);
+    // --primary-color: rgb(10, 113, 247);
+    --secondary-color: linear-gradient(to bottom right, #99ccff 0%, #ccccff 117%);
+
+    --bg-primary: #fff;
+    --bg-secondary: rgb(248, 248, 252);
+
+    --shadow: rgb(233, 232, 232);
+
+    --text-primary: #292929;
+    --text-secondary: #b3b1b1;
+    --text-secondary-active: #292929;
+    // --text-hover : #292929;
+    // --text-active : #292929;
+    // --text-disabled : #292929;
+
+    --icon-primary: #a3a2a2;
+    // --icon-secondary : #292929;
+    // --icon-hover : #292929;
+    // --icon-active : #292929;
+    // --icon-disabled : #292929;
+
+    --button-primary: #292929;
+    // --button-secondary : #292929;
+    // --button-hover : #292929;
+    // --button-active : #292929;
+    // --button-disabled : #292929;
+}
+.card {
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: 0 1px 6px var(--shadow);
+    border-radius: 3px;
+}
+// Scroll
+/* width */
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 3px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: var(--icon-primary);
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(218, 217, 217);
+}

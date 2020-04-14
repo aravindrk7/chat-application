@@ -1,0 +1,7 @@
+<div class="container" #messageBox>
+    <div class="animated fadeIn" [ngClass]="(message.from.toLowerCase() == user.toLowerCase())?'user':null"
+        *ngFor="let message of messages">
+        <span>{{message.time | formatTime}}</span>
+        <p>{{message.text}} </p>
+    </div>
+</div>

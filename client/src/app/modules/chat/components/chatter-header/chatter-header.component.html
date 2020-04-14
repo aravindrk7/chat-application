@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="details">
+        <div class="displayPicture">
+            <img src="http://localhost:5000/{{messenger['image']}}" alt="DP">
+        </div>
+        <div class="name">
+            <h3>{{messenger['firstName']}}</h3>
+            <ng-container *ngIf="messenger['lastSeen']=='online'">
+                <p>{{messenger['lastSeen']}}</p>
+            </ng-container>
+            <ng-container *ngIf="messenger['lastSeen']!='online'">
+                <p>{{messenger['lastSeen'] | lastseenFormatTime}}</p>
+            </ng-container>
+        </div>
+    </div>
+    <div class="options">
+        <i class="fa fa-phone"></i>
+        <i class="fa fa-video"></i>
+        <i class="fa fa-ellipsis-h"></i>
+    </div>
+</div>

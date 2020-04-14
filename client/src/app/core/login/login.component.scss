@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background: #cafafe;
+    // background: #3feee6;
+    .card {
+        width: 30%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #292929;
+        // background: #CAFAFE;
+        background: #55bcc8;
+        box-shadow: 0px 0px 5px #55bcc8;
+        .heading {
+            padding: 10px;
+            padding-bottom: 0px;
+
+            h1 {
+                font-size: 18px;
+                color: #f1f1f1;
+            }
+        }
+        .login-section {
+            padding: 10px;
+
+            input {
+                width: 100%;
+                height: 40px;
+                margin-bottom: 10px;
+                padding: 5px;
+            }
+            button {
+                width: 100%;
+                height: 40px;
+                margin-bottom: 10px;
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}

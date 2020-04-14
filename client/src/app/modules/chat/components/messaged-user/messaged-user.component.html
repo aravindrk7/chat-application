@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="details card" [ngClass]="(messenger['userName'] == currentMessenger)?'current-messenger':null"
+        *ngFor="let messenger of messengerList" (click)="openUserMessages(messenger)">
+        <div class="messenger">
+            <div class="displayPicture">
+                <img src="http://localhost:5000/{{messenger['image']}}" alt="DP">
+            </div>
+            <div class="name">
+                <h3>{{messenger['firstName']}}</h3>
+                <p>{{messenger['latestMessage']}}</p>
+            </div>
+        </div>
+        <div class="msgInfo">
+            <p *ngIf="messenger['time']">{{messenger['time'] | formatTime}}</p>
+            <!-- <app-badge [value]="messenger['messages']"></app-badge> -->
+        </div>
+    </div>
+</div>
+<!--  -->
