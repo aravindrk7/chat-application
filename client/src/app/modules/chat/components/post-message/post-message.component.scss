@@ -1,5 +1,6 @@
-@import '../../../../../assets/variables';
+@import "../../../../../assets/variables";
 .container {
+    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
@@ -8,7 +9,40 @@
     padding: 0px 10px;
     padding-right: 0;
     background: var(--bg-secondary);
+    .emojiTray {
+        bottom: 40px;
+        right: 70px;
+        position: absolute;
+        border: 1px solid gainsboro;
+        padding: 10px 0;
+        background: var(--bg-primary);
 
+        // grid-template-rows: repeat(8,1fr);
+        .heading {
+            h1 {
+                padding: 0 10px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+        }
+        .emojies {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            span {
+                user-select: none;
+                padding: 10px;
+                cursor: pointer;
+                transition: 0.5s;
+                font-size: 20px;
+                &:hover {
+                    transform: scale(1.8);
+                }
+            }
+        }
+    }
     input {
         font-size: 11px;
         padding: 5px;
@@ -23,6 +57,10 @@
         padding: 0 10px;
         cursor: pointer;
         color: var(--icon-primary);
+        transition: 0.5s;
+        &:hover {
+            color: var(--icon-hover);
+        }
     }
     button {
         height: 40px;

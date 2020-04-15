@@ -9,13 +9,16 @@ import { ChatService } from 'src/app/core/services/chat.service';
 })
 export class ChatterHeaderComponent implements OnInit {
   messenger: string;
-
+  str = String;
+  test: any;
   constructor(
     private dataService: DataService,
     private chatService: ChatService
   ) { }
 
   ngOnInit(): void {
+    let str = 'Aravind###128512';
+     this.test = str.split('###')[0] + String.fromCodePoint(Number(str.split('###')[1]))
     this.dataService.messengerData.subscribe(messengerData => {
       this.messenger = messengerData;
     });

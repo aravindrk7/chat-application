@@ -2,9 +2,17 @@
     <i class="fa fa-paperclip"></i>
     <input type="text" placeholder="Type a message here..." value={{message}} (input)="setMessage($event)"
         (keyup)="$event.keyCode == 13 && sendMessage()">
-    <i class="fa fa-smile"></i>
+    <i class="fa fa-smile" (click)="openEmojiTray()"></i>
     <i class="fa fa-microphone"></i>
     <button>
         <i class="fa fa-paper-plane send" (click)="sendMessage()"></i>
     </button>
+    <div *ngIf="emojiTray" class="emojiTray card">
+        <div class="heading">
+            <h1>Smileys & People</h1>
+        </div>
+        <div class="emojies">
+            <span *ngFor="let emoji of emojiList" (click)="addEmoji(emoji)">{{emoji}}</span>
+        </div>
+    </div>
 </div>
