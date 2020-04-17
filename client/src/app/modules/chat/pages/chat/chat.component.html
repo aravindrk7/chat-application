@@ -21,7 +21,8 @@
             <app-message-box [messages]="messages" [user]="userName"></app-message-box>
         </div>
         <div class="postMessage card">
-            <app-post-message (msgSendEvent)="sendMessage($event)"></app-post-message>
+            <app-post-message (msgSendEvent)="sendMessage($event)" (fileSendEvent)="sendFile($event)">
+            </app-post-message>
         </div>
     </div>
     <div class="notifications card"></div>

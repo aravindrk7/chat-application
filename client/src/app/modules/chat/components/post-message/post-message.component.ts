@@ -11,6 +11,7 @@ export class PostMessageComponent implements OnInit {
   messages = [];
   letterCount: number = 0;
   @Output() msgSendEvent = new EventEmitter();
+  @Output() fileSendEvent = new EventEmitter();
   emojiTray: boolean = false;
   emojiList: any[];
   constructor() {
@@ -20,8 +21,26 @@ export class PostMessageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  uploadFile(event) {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (event) => {
+      this.sendFile(event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  sendFile(file) {
+    this.fileSendEvent.emit(file);
+  }
+
+
   openEmojiTray() {
     this.emojiTray = !this.emojiTray;
+  }
+
+  closeEmojiTray() {
+    this.emojiTray = false;
   }
   addEmoji(emoji) {
     if (this.message)
@@ -34,7 +53,7 @@ export class PostMessageComponent implements OnInit {
   }
 
   sendMessage() {
-    this.emojiTray = false;
+    this.closeEmojiTray();
     // let final_message = '';
     let message = this.message.trim();
     if (message == '') return null;

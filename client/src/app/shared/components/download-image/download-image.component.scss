@@ -1,0 +1,9 @@
+a {
+    i {
+        color: var(--bg-primary);
+        transition: .5s;
+        &:hover {
+            color: var(--icon-primary);
+        }
+    }
+}

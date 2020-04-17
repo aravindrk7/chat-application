@@ -1,5 +1,10 @@
 <div class="container">
-    <i class="fa fa-paperclip"></i>
+    <div class="file-upload">
+        <label for="file-input">
+            <i class="fa fa-paperclip" (click)="closeEmojiTray()"></i>
+        </label>
+        <input id="file-input" type="file" (change)="uploadFile($event)"/>
+    </div>
     <input type="text" placeholder="Type a message here..." value={{message}} (input)="setMessage($event)"
         (keyup)="$event.keyCode == 13 && sendMessage()">
     <i class="fa fa-smile" (click)="openEmojiTray()"></i>
@@ -8,8 +13,11 @@
         <i class="fa fa-paper-plane send" (click)="sendMessage()"></i>
     </button>
     <div *ngIf="emojiTray" class="emojiTray card">
-        <div class="heading">
-            <h1>Smileys & People</h1>
+        <div class="header">
+            <div class="heading">
+                <h1>Smileys & People</h1>
+            </div>
+            <i class="fa fa-times" (click)="closeEmojiTray()"></i>
         </div>
         <div class="emojies">
             <span *ngFor="let emoji of emojiList" (click)="addEmoji(emoji)">{{emoji}}</span>

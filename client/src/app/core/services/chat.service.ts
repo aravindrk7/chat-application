@@ -42,9 +42,12 @@ export class ChatService {
     this.socket.emit('getUserMessages', params);
   }
 
-
   sendMessage(targetData) {
     this.socket.emit('sendMessage', targetData);
+  }
+
+  sendFile(targetData) {
+    this.socket.emit('sendFile', targetData);
   }
 
   public getMessages = () => {

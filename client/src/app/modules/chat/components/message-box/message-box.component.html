@@ -1,7 +1,8 @@
 <div class="container" #messageBox>
-    <div class="animated fadeIn" [ngClass]="(message.from.toLowerCase() == user.toLowerCase())?'user':null"
+    <div class="animated fadeIn message" [ngClass]="(message.from.toLowerCase() == user.toLowerCase())?'user':null"
         *ngFor="let message of messages">
         <span>{{message.time | formatTime}}</span>
-        <p>{{message.text}} </p>
+        <p *ngIf="message.text">{{message.text}} </p>
+        <img *ngIf="!message.text" src="{{message.image}}" alt="" (click)="openImage(message.image,message.from)">
     </div>
 </div>

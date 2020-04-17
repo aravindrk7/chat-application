@@ -51,7 +51,13 @@ export class ChatComponent implements OnInit {
   sendMessage(message) {
     let time = new Date();
     this.messages.push({ from: this.userName, text: message, time: time });
-    this.chatService.sendMessage({ from: this.userName, to: this.messengerData['userName'], text: message, time: time });
+    this.chatService.sendMessage({ from: this.userName, to: this.messengerData['userName'], text: message, image: '', time: time });
+  }
+  sendFile(file) {
+    let time = new Date();
+    this.messages.push({ from: this.userName, text: '', image: file, time: time });
+    console.log({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
+    this.chatService.sendFile({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
   }
 
 }

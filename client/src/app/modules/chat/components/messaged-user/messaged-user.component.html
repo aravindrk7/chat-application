@@ -7,7 +7,9 @@
             </div>
             <div class="name">
                 <h3>{{messenger['firstName']}}</h3>
-                <p>{{messenger['latestMessage']}}</p>
+                <p *ngIf="messenger['latestMessage']">{{messenger['latestMessage']}}</p>
+                <i *ngIf="messenger['latestFile']" class="fa fa-image"> </i><span
+                    *ngIf="messenger['latestFile']">image</span>
             </div>
         </div>
         <div class="msgInfo">

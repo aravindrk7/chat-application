@@ -1,0 +1,16 @@
+<div *ngIf="src.display" class="container animated fadeIn">
+    <div class="popup">
+        <div class="headers">
+            <h1>{{src.heading}}</h1>
+            <div class="options">
+                <app-download-image [src]="src.data"></app-download-image>
+                <i class="fa fa-times close" (click)="src.close()"></i>
+            </div>
+        </div>
+
+        <div *ngIf="src.type == 'image'" class="content">
+            <!-- <i class="{{src.icon}}"></i> -->
+            <img src="{{src.data}}" alt="">
+        </div>
+    </div>
+</div>

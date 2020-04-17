@@ -14,7 +14,7 @@ export class MessagedUserComponent implements OnInit {
   // @Output() msgOpenEvent = new EventEmitter();
   constructor(
     private dataService: DataService,
-    private chatService: ChatService
+    private chatService: ChatService,
   ) {
     this.dataService.userData.subscribe(userData => {
       this.userData = userData;
@@ -32,12 +32,13 @@ export class MessagedUserComponent implements OnInit {
             this.messengerList.forEach(messenger => {
               if (messenger['userName'] === msg['from']) {
                 messenger['latestMessage'] = msg['text'];
+                messenger['latestFile'] = msg['image'];
                 messenger['time'] = msg['time'];
                 return;
               }
             });
           }
-         
+
         });
       });
       let params = {
@@ -55,6 +56,7 @@ export class MessagedUserComponent implements OnInit {
         this.messengerList.forEach(messenger => {
           if (messenger.userName === message['from']) {
             messenger['latestMessage'] = message['text'];
+            messenger['latestFile'] = message['image'];
             messenger['time'] = message['time'];
           }
         });

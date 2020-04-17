@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, OnChanges } from '@angular/core';
+import { PopupService } from 'src/app/core/services/popup.service';
 
 @Component({
   selector: 'app-message-box',
@@ -10,7 +11,9 @@ export class MessageBoxComponent implements OnChanges {
   @Input() user;
   @ViewChild('messageBox') messageBox: ElementRef;
 
-  constructor() { }
+  constructor(
+    private popupService: PopupService
+  ) { }
 
   ngOnChanges(): void {
     this.scrollToBottom(this.messageBox);
@@ -19,5 +22,8 @@ export class MessageBoxComponent implements OnChanges {
     try {
       myScrollContainer.nativeElement.scrollTop = myScrollContainer.nativeElement.scrollHeight;
     } catch (err) { }
+  }
+  openImage(src, name) {
+    this.popupService.pops(src, 'image from ' + name, 'image', 'fa fa-image');;
   }
 }

@@ -10,7 +10,7 @@
         border-radius: 5px;
         margin-bottom: 7px;
         cursor: pointer;
-        &:hover{
+        &:hover {
             background: var(--secondary-color);
         }
         .messenger {
@@ -22,7 +22,7 @@
                 height: 40px;
                 width: 40px;
                 border-radius: 50%;
-
+                
                 @include center();
                 img {
                     width: 35px;
@@ -47,19 +47,37 @@
                     white-space: nowrap;
                     overflow: hidden;
                 }
+                i {
+                    font-size: 12px;
+                    color: var(--icon-primary);
+                    margin-right: 5px;
+                }
+                span{
+                    font-size: 10px;
+                    color: var(--text-secondary);
+                    font-weight: bold;
+                }
             }
         }
     }
     .current-messenger {
         background: var(--primary-color);
         color: #fff;
-        &:hover{
+        &:hover {
             background: var(--primary-color);
         }
         .messenger {
             .displayPicture {
                 background: var(--primary-color);
                 box-shadow: 0 3px 4px black;
+            }
+            .name {
+                i {
+                    color: var(--bg-primary);
+                }
+                span{
+                    color: var(--bg-primary);
+                }
             }
         }
     }

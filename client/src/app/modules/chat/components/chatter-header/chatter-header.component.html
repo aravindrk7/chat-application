@@ -1,7 +1,8 @@
 <div class="container">
     <div class="details">
         <div class="displayPicture">
-            <img src="http://localhost:5000/{{messenger['image']}}" alt="DP">
+            <img src="http://localhost:5000/{{messenger['image']}}" alt="DP"
+                (click)="openImage('http://localhost:5000/'+messenger['image'], messenger['firstName'])">
         </div>
         <div class="name">
             <h3>{{messenger['firstName']}}</h3>

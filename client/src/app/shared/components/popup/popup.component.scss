@@ -1,0 +1,68 @@
+@import "../../../../assets/variables";
+
+.container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba($color: #000000, $alpha: 0.8);
+    z-index: 9;
+
+    .popup {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        padding: 10px;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        color: var(--bg-primary);
+        width: 600px;
+        height: 500px;
+        border-radius: 3px;
+
+        .headers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            h1 {
+                font-size: 15px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .options{
+                display: flex;
+                i{
+                    margin-left: 15px;
+                }
+            }
+        }
+
+        .close {
+            cursor: pointer;
+            background: var(--card_bg);
+            border-radius: 50%;
+            font-weight: bold;
+            @include center();
+            border: 3px solid var(--border);
+            transition: 0.5s;
+            color: var(--bg-primary);
+            &:hover {
+                color: var(--icon-primary);
+            }
+        }
+
+        .content {
+            @include center();
+            flex-direction: column;
+            height: calc(100% - 35px);
+            img {
+                user-select: none;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 3px 4px rgb(43, 43, 43);
+                border: 3px solid var(--bg-primary);
+            }
+        }
+    }
+}
