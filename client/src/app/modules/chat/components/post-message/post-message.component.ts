@@ -12,6 +12,7 @@ export class PostMessageComponent implements OnInit {
   letterCount: number = 0;
   @Output() msgSendEvent = new EventEmitter();
   @Output() fileSendEvent = new EventEmitter();
+  @Output() audioSendEvent = new EventEmitter();
   emojiTray: boolean = false;
   emojiList: any[];
   constructor() {
@@ -29,9 +30,17 @@ export class PostMessageComponent implements OnInit {
     };
     reader.readAsDataURL(file);
   }
+  uploadAudio(event) {
+    let file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    this.sendAudio(url);
+  }
 
   sendFile(file) {
     this.fileSendEvent.emit(file);
+  }
+  sendAudio(file) {
+    this.audioSendEvent.emit(file);
   }
 
 

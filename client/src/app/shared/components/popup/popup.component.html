@@ -1,13 +1,14 @@
 <div *ngIf="src.display" class="container animated fadeIn">
-    <div class="popup">
-        <div class="headers">
-            <h1>{{src.heading}}</h1>
-            <div class="options">
-                <app-download-image [src]="src.data"></app-download-image>
-                <i class="fa fa-times close" (click)="src.close()"></i>
-            </div>
+    <div class="headers">
+        <!-- <h1>Aravind</h1> -->
+        <h1>{{src.heading}}</h1>
+        <div class="options">
+            <i class="fa fa-print" aria-hidden="true" (click)="printImage()"></i>
+            <app-download-image [src]="src.data"></app-download-image>
+            <i class="fa fa-times close" (click)="src.close()"></i>
         </div>
-
+    </div>
+    <div class="popup">
         <div *ngIf="src.type == 'image'" class="content">
             <!-- <i class="{{src.icon}}"></i> -->
             <img src="{{src.data}}" alt="">

@@ -4,28 +4,28 @@
     height: 100%;
     padding: 5px 20px;
     overflow-y: auto;
-
+    background: var(--bg-primary);
     .message {
         display: flex;
         flex-direction: column;
         margin: 5px 0;
         p {
+            font-size: 12px;
+            font-weight: bold;
             padding: 7px 15px;
             background: var(--secondary-color);
             width: fit-content;
-            border-radius: 20px;
+            border-radius: 7px;
             border-top-left-radius: 0;
-            font-size: 12px;
-            // font-weight: bold;
             clear: both;
         }
         img {
             width: 160px;
             height: 120px;
-            border-radius: 3px;
-            border: 4px solid var(--bg-primary);
-            border-top-left-radius: 0;
-            box-shadow: 0 3px 4px rgb(129, 128, 128);
+            // border-radius: 5px;
+            border: 1px solid var(--bg-primary);
+            // border-top-left-radius: 0;
+            box-shadow: 0 0 3px rgb(129, 128, 128);
             clear: both;
             cursor: pointer;
             transition: 0.5s;
@@ -37,6 +37,7 @@
             font-size: 9px;
             clear: both;
             color: var(--text-secondary);
+            margin-bottom: 3px;
         }
     }
     .user {
@@ -45,12 +46,12 @@
             color: var(--bg-primary);
             background: var(--primary-color);
             float: right;
-            border-top-left-radius: 20px;
+            border-top-left-radius: 7px;
             border-top-right-radius: 0;
         }
         img {
             float: right;
-            border-top-right-radius: 0;
+            // border-top-right-radius: 0;
             cursor: pointer;
             transition: 0.5s;
             &:hover {

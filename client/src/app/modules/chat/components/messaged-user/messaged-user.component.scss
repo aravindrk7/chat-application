@@ -2,92 +2,100 @@
 .container {
     height: 100%;
     overflow: auto;
-
+    // background: var(--bg-primary);
+    // border-right: 1px solid rgb(245, 245, 245);
     .details {
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        border-radius: 5px;
-        margin-bottom: 7px;
+        height: 80px;
+        // border-radius: 5px;
+        // margin-bottom: 7px;
+        border-bottom: 2px solid rgb(245, 245, 245);
         cursor: pointer;
         &:hover {
-            background: var(--secondary-color);
+            background: var(--bg-secondary);
         }
         .messenger {
             display: flex;
             .displayPicture {
+                position: relative;
                 margin-right: 10px;
-                background: var(--bg-primary);
-                box-shadow: 0 3px 4px var(--shadow);
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                
+                // background: var(--bg-primary);
+                // box-shadow: 0 3px 4px var(--shadow);
+                // height: 40px;
+                // width: 40px;
                 @include center();
-                img {
-                    width: 35px;
+                span {
+                    position: absolute;
+                    bottom: 7px;
+                    right: 2px;
+                    width: 12px;
+                    height: 12px;
+                    background: var(--icon-primary);
                     border-radius: 50%;
-                    height: 35px;
+                    border: 2px solid #fff;
+                }
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
                 }
             }
             .name {
-                padding: 2px 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10px 0;
+                // background: red;
                 h3 {
-                    font-size: 13px;
+                    font-size: 14px;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
+                    width: 130px;
                 }
                 p {
-                    width: 130px;
-                    font-size: 11px;
-                    color: var(--text-secondary);
+                    font-size: 12px;
                     font-weight: bold;
+                    color: var(--text-secondary);
+                    width: 130px;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
                 }
-                i {
-                    font-size: 12px;
-                    color: var(--icon-primary);
-                    margin-right: 5px;
-                }
-                span{
-                    font-size: 10px;
-                    color: var(--text-secondary);
-                    font-weight: bold;
+                .imageFile {
+                    display: flex;
+                    i {
+                        font-size: 12px;
+                        color: var(--icon-primary);
+                        margin-right: 5px;
+                    }
+                    span {
+                        font-size: 10px;
+                        font-weight: bold;
+                        color: var(--text-secondary);
+                    }
                 }
             }
         }
     }
     .current-messenger {
-        background: var(--primary-color);
-        color: #fff;
+        background: var(--bg-primary);
+        border-right: 2px solid var(--primary-color);
         &:hover {
-            background: var(--primary-color);
-        }
-        .messenger {
-            .displayPicture {
-                background: var(--primary-color);
-                box-shadow: 0 3px 4px black;
-            }
-            .name {
-                i {
-                    color: var(--bg-primary);
-                }
-                span{
-                    color: var(--bg-primary);
-                }
-            }
+            background: var(--bg-primary);
         }
     }
 
     .msgInfo {
+        padding: 5px 0;
         display: flex;
         flex-direction: column;
         p {
-            color: var(--text-secondary);
             font-size: 10px;
+            font-weight: bold;
+            color: var(--text-secondary);
         }
     }
 }

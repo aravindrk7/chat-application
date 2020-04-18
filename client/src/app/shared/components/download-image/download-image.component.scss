@@ -1,9 +1,12 @@
 a {
     i {
+        font-size: 20px;
         color: var(--bg-primary);
         transition: .5s;
-        &:hover {
-            color: var(--icon-primary);
+        padding: 10px;
+        border-radius: 3px;
+        &:hover{
+            background: rgba($color: #747474, $alpha: 0.8);
         }
     }
 }

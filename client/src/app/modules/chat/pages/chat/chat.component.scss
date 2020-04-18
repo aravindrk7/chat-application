@@ -4,67 +4,197 @@
     height: 100%;
     display: grid;
     grid-template-columns: 22% 55% auto;
-    padding: 10px;
-    grid-column-gap: 10px;
-}
-.userList {
-    display: flex;
-    flex-direction: column;
-    padding: 0 5px;
-    h1 {
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
-    .tabs {
-        span {
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-right: 10px;
-            color: var(--text-secondary);
-        }
-        margin-bottom: 10px;
-        .active {
-            color: var(--text-secondary-active);
-        }
-    }
-    .search {
-        margin-bottom: 15px;
-        background: var(--bg-primary);
-        box-shadow: 0 4px 4px var(--shadow);
-        border-radius: 20px;
+    // padding-top: 10px;
+    // grid-column-gap: 10px;
+    .left-section {
         display: flex;
-        padding: 0 10px;
+        flex-direction: column;
+        // background: var(--bg-se);
+        // border-right: 1px solid rgb(245, 245, 245);
+        // padding: 0 5px;
         @include center();
-        i {
-            color: var(--icon-primary);
-        }
-        input {
-            font-size: 11px;
-            padding: 5px;
-            height: 40px;
-            width: 100%;
-            background: transparent;
-            &::placeholder {
-                color: var(--text-secondary);
+
+        .search {
+            width: 90%;
+            // margin-bottom: 15px;
+            background: var(--bg-primary);
+            box-shadow: 0 4px 4px var(--shadow);
+            border-radius: 20px;
+            height: 50px;
+            display: flex;
+            padding: 0 10px;
+            @include center();
+            i {
+                color: var(--icon-primary);
+            }
+            input {
+                font-size: 11px;
+                padding: 5px;
+                height: 40px;
+                width: 100%;
+                background: transparent;
+                &::placeholder {
+                    color: var(--text-secondary);
+                }
             }
         }
+        .tabs {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            i {
+                @include center();
+                font-size: 17x;
+                // font-weight: bold;
+                // text-transform: uppercase;
+                // margin-right: 10px;
+                padding: 15px 0;
+                width: 100%;
+                color: var(--text-secondary);
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover {
+                    color: var(--secondary-color);
+                }
+            }
+
+            .active {
+                color: var(--primary-color);
+                border-bottom: 2px solid var(--primary-color);
+                &:hover {
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        .list {
+            width: 100%;
+            height: calc(100vh - 160px);
+        }
     }
-    .list {
-        height: calc(100vh - 190px);
+    .chatbox {
+        display: grid;
+        grid-template-rows: 50px auto 70px;
+        background: var(--bg-primary);
+        // grid-row-gap: 5px;
+        .chatter {
+            // padding: 5px 20px;
+        }
+        .messages {
+            height: calc(100vh - 170px);
+        }
+        .postMessage {
+            width: 100%;
+            padding: 5px 20px;
+        }
     }
-}
-.chatbox {
-    display: grid;
-    grid-template-rows: 50px auto 50px;
-    grid-row-gap: 5px;
-    .chatter {
-        padding: 5px 20px;
-    }
-    .messages {
-        height: calc(100vh - 180px);
-    }
-    .postMessage {
-        padding: 5px 20px;
+    .right-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 10px;
+        // background: var(--bg-primary);
+        // border-left: 1px solid rgb(245, 245, 245);
+        // @include center();
+        display: flex;
+        align-items: center;
+        .displayPicture {
+            margin-bottom: 20px;
+            cursor: pointer;
+            // @include center();
+            img {
+                width: 100px;
+                border-radius: 50%;
+                height: 100px;
+                box-shadow: 0 4px 4px gainsboro;
+            }
+        }
+        h1 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .items {
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            // background: red;
+            width: 80%;
+            margin-bottom: 30px;
+            i {
+                // width: 20px;
+                // height: 20px;
+                padding: 10px;
+                background: var(--secondary-color);
+                box-shadow: 0 4px 4px var(--shadow);
+                cursor: pointer;
+                font-size: 18px;
+                color: var(--primary-color);
+                border-radius: 50%;
+                transition: 0.5s;
+                &:hover {
+                    background: var(--primary-color);
+                    color: var(--secondary-color);
+                }
+            }
+            .fa-star {
+                &:hover {
+                    color: var(--favorite-color);
+                }
+            }
+        }
+        .attachments {
+            width: 100%;
+            .heading {
+                padding: 10px;
+                width: 100%;
+                h1 {
+                    font-size: 14px;
+                    color: var(--text-secondary);
+                    text-align: left;
+                }
+                .tabs {
+                    display: flex;
+                    width: 100%;
+                    span {
+                        // @include center();
+                        font-size: 12px;
+                        color: var(--text-secondary);
+                        margin-right: 10px;
+                        padding: 5px 0;
+                        cursor: pointer;
+                    }
+                    .active {
+                        border-bottom: 2px solid var(--primary-color);
+                    }
+                }
+            }
+            h2 {
+                width: 100%;
+                height: 220px;
+                @include center();
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+            .files {
+                padding: 10px;
+                width: 100%;
+                height: 250px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 15px;
+                overflow-y: auto;
+                img {
+                    width: 100%;
+                    height: 80px;
+                    border-radius: 5px;
+                }
+            }
+        }
     }
 }

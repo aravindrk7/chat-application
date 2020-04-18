@@ -2,8 +2,8 @@
 @import "~animate.css/animate.min";
 
 @font-face {
-    font-family: poppins;
-    src: url(assets/fonts/Poppins-Regular.ttf);
+    font-family: roboto;
+    src: url(assets/fonts/Montserrat-Regular.ttf);
 }
 
 * {
@@ -12,17 +12,17 @@
     box-sizing: border-box;
     border: none;
     outline: none;
-    font-family: poppins;
+    font-family: roboto;
     scroll-behavior: smooth;
 }
 
 :root {
-    --primary-color: linear-gradient(to bottom right, #3366ff 0%, #003399 117%);
+    --primary-color: #033fb8;
     // --primary-color: rgb(10, 113, 247);
-    --secondary-color: linear-gradient(to bottom right, #99ccff 0%, #ccccff 117%);
+    --secondary-color: #ebeefd;
 
     --bg-primary: #fff;
-    --bg-secondary: rgb(248, 248, 252);
+    --bg-secondary: rgb(245, 253, 255);
 
     --shadow: rgb(233, 232, 232);
 
@@ -35,7 +35,7 @@
 
     --icon-primary: #a3a2a2;
     // --icon-secondary : #292929;
-    --icon-hover : #292929;
+    --icon-hover: #292929;
     // --icon-active : #292929;
     // --icon-disabled : #292929;
 
@@ -44,6 +44,8 @@
     // --button-hover : #292929;
     // --button-active : #292929;
     // --button-disabled : #292929;
+
+    --favorite-color: rgb(248, 248, 0);
 }
 .card {
     color: var(--text-primary);

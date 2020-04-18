@@ -9,13 +9,16 @@ import { PopupService } from 'src/app/core/services/popup.service';
 export class PopupComponent implements OnChanges {
 	// tableData: any;
 	constructor(private _popupService: PopupService) {
-	}	
+	}
 	get src(): Popper {
 		return this._popupService.popper;
 	}
 
 	ngOnChanges() {
-		
+
 		// this.tableData = this.src.data;
+	}
+	printImage() {
+		window.print();
 	}
 }

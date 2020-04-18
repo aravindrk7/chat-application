@@ -74,5 +74,8 @@ export class MessagedUserComponent implements OnInit {
     this.chatService.getUserMessages(params);
 
   }
+  setStatusColor(lastSeen) {
+    return (lastSeen == 'online') ? 'green' : 'orange';
+  }
 
 }

@@ -1,15 +1,20 @@
 <div class="container">
-    <div class="details card" [ngClass]="(messenger['userName'] == currentMessenger)?'current-messenger':null"
+    <div class="details" [ngClass]="(messenger['userName'] == currentMessenger)?'current-messenger':null"
         *ngFor="let messenger of messengerList" (click)="openUserMessages(messenger)">
         <div class="messenger">
             <div class="displayPicture">
                 <img src="http://localhost:5000/{{messenger['image']}}" alt="DP">
+                <span [title]="(messenger['lastSeen']) != 'online'?'Offline':'Online'"
+                    [style.background]="setStatusColor(messenger['lastSeen'])"></span>
             </div>
             <div class="name">
                 <h3>{{messenger['firstName']}}</h3>
                 <p *ngIf="messenger['latestMessage']">{{messenger['latestMessage']}}</p>
-                <i *ngIf="messenger['latestFile']" class="fa fa-image"> </i><span
-                    *ngIf="messenger['latestFile']">image</span>
+                <p *ngIf="!messenger['latestMessage'] && !messenger['latestFile']">No message yet</p>
+                <div class="imageFile">
+                    <i *ngIf="messenger['latestFile']" class="fa fa-image"> </i>
+                    <span *ngIf="messenger['latestFile']">image</span>
+                </div>
             </div>
         </div>
         <div class="msgInfo">
@@ -18,4 +23,3 @@
         </div>
     </div>
 </div>
-<!--  -->

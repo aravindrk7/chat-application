@@ -1,7 +1,8 @@
 @import "../../../../../assets/variables";
 .container {
     position: relative;
-    height: 100%;
+    height: calc(100% - 20px);
+    // margin-top: 10px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -9,7 +10,9 @@
     padding: 0px 10px;
     padding-right: 0;
     background: var(--bg-secondary);
-    .file-upload > input {
+    border: 2px solid rgb(245, 245, 245);
+    .file-upload > input,
+    .audio-upload > input {
         display: none;
     }
 
@@ -31,8 +34,6 @@
                     font-weight: bold;
                 }
             }
-            // i {
-            // }
         }
 
         .emojies {

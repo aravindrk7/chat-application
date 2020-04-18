@@ -43,7 +43,11 @@ io.on('connection', (socket) => {
     });
 
     socket.on('sendMessage', (targetData, callback) => {
-        // console.log(targetData);
+        storeUserMessages(targetData);
+        io.to(targetData['to']).emit('message', targetData);
+    });
+
+    socket.on('sendFile', (targetData, callback) => {
         storeUserMessages(targetData);
         io.to(targetData['to']).emit('message', targetData);
     });

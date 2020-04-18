@@ -3,6 +3,7 @@
     <p>CHAT ONE</p>
   </section>
   <section *ngIf="userData" class="user">
+    <p>My Profile</p>
     <p>{{userData['firstName'] + ' ' + userData['lastName']}}</p>
     <div class="displayPicture">
       <img src="http://localhost:5000/{{userData['image']}}" alt="">
