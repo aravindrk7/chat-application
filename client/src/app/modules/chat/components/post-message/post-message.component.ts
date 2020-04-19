@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { EmojiService } from 'src/app/core/services/emoji.service';
 
 @Component({
   selector: 'app-post-message',
@@ -8,76 +9,59 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PostMessageComponent implements OnInit {
 
   message: any;
-  messages = [];
-  letterCount: number = 0;
   @Output() msgSendEvent = new EventEmitter();
-  @Output() fileSendEvent = new EventEmitter();
-  @Output() audioSendEvent = new EventEmitter();
-  emojiTray: boolean = false;
-  emojiList: any[];
-  constructor() {
-    this.emojiList = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😊', '😇', '🙂', '🙃', '😉', '😌', '😍', '🥰', '😘', '😗', '😙', '😚', '😋', '😛', '😝', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🤩', '🥳', '😏', '😒', '😞', '😔', '😟', '😕', '🙁', '😣', '😖', '😫', '😩', '🥺', '😢', '😭', '😤', '😠', '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😱', '😨', '😰', '😥', '😓', '🤗', '🤔', '🤭', '🥱', '🤫', '🤥', '😶', '😐', '😑', '😬', '🙄', '😯', '😦', '😧', '😮', '😲', '😴', '🤤', '😪', '😵', '🤐', '🥴', '🤢', '🤮', '🤧', '😷', '🤒', '🤕', '🤑', '🤠', '😈', '👿', '👹', '👺', '🤡', '💩', '👻', '💀', '👽', '👾', '🤖', '🎃', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '🤲', '👐', '🙌', '👏', '🤝', '👍', '👎', '👊', '✊', '🤛', '🤜', '🤞', '✌', '🤟', '🤘', '👌', '🤏', '👈', '👉', '👆', '👇', '☝', '✋', '🤚', '🖐', '🖖', '👋', '🤙', '💪', '🖕', '🙏', '✍', '🦾'];
-  }
+  constructor(
+    private emojiService: EmojiService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  uploadFile(event) {
-    let file = event.target.files[0];
-    let reader = new FileReader();
-    reader.onload = (event) => {
-      this.sendFile(event.target.result);
-    };
-    reader.readAsDataURL(file);
-  }
-  uploadAudio(event) {
-    let file = event.target.files[0];
-    const url = URL.createObjectURL(file);
-    this.sendAudio(url);
-  }
-
-  sendFile(file) {
-    this.fileSendEvent.emit(file);
-  }
-  sendAudio(file) {
-    this.audioSendEvent.emit(file);
-  }
-
-
-  openEmojiTray() {
-    this.emojiTray = !this.emojiTray;
-  }
-
-  closeEmojiTray() {
-    this.emojiTray = false;
-  }
-  addEmoji(emoji) {
-    if (this.message)
-      this.message += emoji;
-    else this.message = emoji;
+  sendText() {
+    this.closeEmojiTray();
+    let message = this.message.trim();
+    if (message == '') return null;
+    this.sendMessage({ content: message, type: 'text' });
+    this.message = '';
   }
 
   setMessage(event) {
     this.message = event.target.value;
   }
 
-  sendMessage() {
-    this.closeEmojiTray();
-    // let final_message = '';
-    let message = this.message.trim();
-    if (message == '') return null;
-    // [...message].forEach(char => {
-    //   this.letterCount++;
-    //   if (this.letterCount > 10) {
-    //     final_message += ' ';
-    //     this.letterCount = 0;
-    //   }
-    //   else final_message += char;
-
-    // });
-    this.msgSendEvent.emit(message);
-    this.message = '';
-    this.letterCount = 0;
+  uploadImage(event) {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (event) => {
+      this.sendMessage({ content: event.target.result, type: 'image' });
+    };
+    reader.readAsDataURL(file);
   }
+
+  uploadAudio(event) {
+    let file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    this.sendMessage({ content: url, type: 'audio' });
+  }
+
+  sendMessage(message) {
+    this.msgSendEvent.emit(message);
+  }
+
+  openEmojiTray() {
+    this.emojiService.openTray();
+  }
+
+  closeEmojiTray() {
+    this.emojiService.closeTray();
+  }
+
+  addEmoji(emoji) {
+    if (this.message)
+      this.message += emoji;
+    else this.message = emoji;
+  }
+
+
 
 }

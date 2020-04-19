@@ -1,0 +1,11 @@
+<div *ngIf="src.display" class="emojiTray card">
+    <div class="header">
+        <div class="heading">
+            <h1>Smileys & People</h1>
+        </div>
+        <i class="fa fa-times" (click)="src.close()"></i>
+    </div>
+    <div class="emojies">
+        <span *ngFor="let emoji of src.emojiList" (click)="selectEmoji(emoji)">{{emoji}}</span>
+    </div>
+</div>

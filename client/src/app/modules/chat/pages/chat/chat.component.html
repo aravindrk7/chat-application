@@ -1,50 +1,52 @@
 <div class="container">
+
     <div class="left-section">
-        <!-- <h1>Chats</h1> -->
+
         <div class="search">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="search">
+            <app-search></app-search>
         </div>
         <div class="tabs">
-            <i class="fa fa-user active" aria-hidden="true"></i>
-            <i class="fa fa-users" aria-hidden="true"></i>
-            <i class="fa fa-phone" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <!-- <span class="active">Friends</span> -->
-            <!-- <span>Groups</span> -->
+            <app-tab [list]="tabList" [active]="activeTab"></app-tab>
         </div>
-
         <div class="list">
             <app-messaged-user></app-messaged-user>
         </div>
+
     </div>
+
     <div class="chatbox">
+
         <div class="chatter">
             <app-chatter-header></app-chatter-header>
         </div>
-        <div class="messages" #messageBox>
+        <div class="messages">
             <app-message-box [messages]="messages" [user]="userName"></app-message-box>
         </div>
         <div class="postMessage">
-            <app-post-message (msgSendEvent)="sendMessage($event)" (fileSendEvent)="sendFile($event)" (audioSendEvent)=sendAudio($event)>
-            </app-post-message>
+            <app-post-message (msgSendEvent)="sendMessage($event)"></app-post-message>
         </div>
+
     </div>
+
     <div class="right-section">
-        <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+
         <div class="displayPicture">
             <img src="http://localhost:5000/{{messengerData['image']}}" alt="DP"
                 (click)="openImage('http://localhost:5000/'+messengerData['image'], messengerData['firstName'])">
         </div>
         <h1>{{messengerData['firstName'] + ' ' + messengerData['lastName']}}</h1>
         <p>{{messengerData['userName']}}</p>
+
         <div class="items">
-            <i title="Make a call" class="fa fa-phone"></i>
+            <app-user-action-items></app-user-action-items>
+            <!-- <i title="Make a call" class="fa fa-phone"></i>
             <i title="Make a video call" class="fa fa-video"></i>
-            <i title="Add to favourites" class="fa fa-star" aria-hidden="true"></i>
+            <i title="Add to favourites" class="fa fa-star" aria-hidden="true"></i> -->
         </div>
+
         <div class="attachments">
-            <div class="heading">
+            <app-attachments [messages]="messages"></app-attachments>
+            <!-- <div class="heading">
                 <h1>
                     Attachments
                 </h1>
@@ -54,9 +56,12 @@
                     <span>Audios</span>
                 </div>
             </div>
-            <h2>No_Attachments</h2>
-            <!-- <div class="files">
+            <div class="files">
+                <ng-container *ngFor="let message of messages">
+                    <img *ngIf="!message['text']" src="{{message['image']}}" alt="">
+                </ng-container>
             </div> -->
         </div>
     </div>
+
 </div>

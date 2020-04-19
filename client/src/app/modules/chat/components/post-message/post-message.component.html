@@ -1,12 +1,15 @@
 <div class="container card">
+
     <div class="file-upload">
         <label for="file-input">
             <i class="fa fa-paperclip" (click)="closeEmojiTray()"></i>
         </label>
-        <input id="file-input" type="file" (change)="uploadFile($event)" />
+        <input id="file-input" type="file" accept="image/*" (change)="uploadImage($event)" />
     </div>
+
     <input type="text" placeholder="Type a message here..." value={{message}} (input)="setMessage($event)"
-        (keyup)="$event.keyCode == 13 && sendMessage()">
+        (keyup)="$event.keyCode == 13 && sendText()">
+
     <i class="fa fa-smile" (click)="openEmojiTray()"></i>
 
     <div class="audio-upload">
@@ -15,18 +18,9 @@
         </label>
         <input type="file" accept="audio/*" capture id="recorder" (change)="uploadAudio($event)">
     </div>
+
     <button>
-        <i class="fa fa-paper-plane send" (click)="sendMessage()"></i>
+        <i class="fa fa-paper-plane send" (click)="sendText()"></i>
     </button>
-    <div *ngIf="emojiTray" class="emojiTray card">
-        <div class="header">
-            <div class="heading">
-                <h1>Smileys & People</h1>
-            </div>
-            <i class="fa fa-times" (click)="closeEmojiTray()"></i>
-        </div>
-        <div class="emojies">
-            <span *ngFor="let emoji of emojiList" (click)="addEmoji(emoji)">{{emoji}}</span>
-        </div>
-    </div>
+    <app-emoji-tray (select)="addEmoji($event)"></app-emoji-tray>
 </div>

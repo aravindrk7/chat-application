@@ -14,6 +14,8 @@ export class ChatComponent implements OnInit {
   messages = [];
   userName: any;
   messengerData: any;
+  activeTab: string;
+  tabList: any[];
   constructor(
     private route: ActivatedRoute,
     private chatService: ChatService,
@@ -24,6 +26,28 @@ export class ChatComponent implements OnInit {
 
     this.userName = this.route.snapshot.queryParams.name;
     this.dataService.updatedUserData({ name: this.userName });
+
+    this.activeTab = 'Friends'
+    this.tabList = [
+      {
+        title: 'Friends',
+        icon: 'fa fa-user'
+      },
+      {
+        title: 'Groups',
+        icon: 'fa fa-users'
+      },
+      {
+        title: 'Calls',
+        icon: 'fa fa-phone'
+      },
+      {
+        title: 'Favourites',
+        icon: 'fa fa-star'
+      }
+
+    ];
+
   }
 
   ngOnInit(): void {
@@ -35,7 +59,8 @@ export class ChatComponent implements OnInit {
     this.chatService
       .getMessages()
       .subscribe((message: string) => {
-        if (message['from'] == this.messengerData['userName']) {
+        console.log(message);
+        if ((message['from'] == this.messengerData['userName']) || (message['from'] == this.userName)) {
           this.messages.push(message);
         }
       });
@@ -44,6 +69,7 @@ export class ChatComponent implements OnInit {
       .subscribe((messages: any) => {
         this.messages = [];
         this.messages = messages;
+        console.log(this.messages);
       });
 
     this.dataService.messengerData.subscribe(messengerData => {
@@ -52,23 +78,50 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(message) {
-    let time = new Date();
-    this.messages.push({ from: this.userName, text: message, time: time });
-    this.chatService.sendMessage({ from: this.userName, to: this.messengerData['userName'], text: message, image: '', time: time });
-  }
-  sendFile(file) {
-    let time = new Date();
-    this.messages.push({ from: this.userName, text: '', image: file, time: time });
-    console.log({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
-    this.chatService.sendFile({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
-  }
-  sendAudio(file) {
-    console.log(file);
     // let time = new Date();
-    // this.messages.push({ from: this.userName, text: '', image: file, time: time });
-    // console.log({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
-    // this.chatService.sendFile({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
+    // this.messages.push({
+    //   from: this.userName,
+    //   text: this.getMessage(message, 'text'),
+    //   image: this.getMessage(message, 'image'),
+    //   audio: this.getMessage(message, 'audio'),
+    //   time: time
+    // });
+    this.chatService.sendMessage({
+      from: this.userName,
+      to: this.messengerData['userName'],
+      text: this.getMessage(message, 'text'),
+      image: this.getMessage(message, 'image'),
+      audio: this.getMessage(message, 'audio'),
+      type: message['type'],
+      time: new Date()
+    });
   }
+
+  getMessage(message, type) {
+    return (message['type'] == type) ? message['content'] : '';
+  }
+
+  // sendFile(file) {
+  //   let time = new Date();
+  //   this.messages.push({
+  //     from: this.userName,
+  //     text: '', image: file,
+  //     time: time
+  //   });
+  //   this.chatService.sendFile({
+  //     from: this.userName,
+  //     to: this.messengerData['userName'],
+  //     text: '', image: file,
+  //     time: time
+  //   });
+  // }
+  // sendAudio(file) {
+  //   console.log(file);
+  //   // let time = new Date();
+  //   // this.messages.push({ from: this.userName, text: '', image: file, time: time });
+  //   // console.log({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
+  //   // this.chatService.sendFile({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
+  // }
 
   openImage(url, name) {
     fetch(url)
@@ -81,7 +134,6 @@ export class ChatComponent implements OnInit {
 
   }
   getDataUrl(img, name) {
-    // Create canvas
     let reader = new FileReader();
     reader.onload = (event) => {
       this.popupService.pops(event.target.result, name, 'image', 'fa fa-image');

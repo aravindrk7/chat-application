@@ -21,9 +21,10 @@ const getLatestMessage = (user) => {
     return msg;
 };
 
-const storeUserMessages = ({ from, to, text, image: image, time }) => {
-    userMessages[from.trim().toLowerCase()].push({ from: from, to: to, text: text, image: image, time: time });
+const storeUserMessages = ({ from, to, text, image, audio, type, time }) => {
+    userMessages[from.trim().toLowerCase()].push({ from: from, to: to, text: text, image: image, audio: audio, type: type, time: time });
 };
+
 const getUserMessages = ({ from, to }) => {
     let result1 = userMessages[from.trim().toLowerCase()].filter(obj => {
         return obj.to == to;

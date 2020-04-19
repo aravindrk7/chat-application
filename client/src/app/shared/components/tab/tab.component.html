@@ -1,0 +1,4 @@
+<div class="container">
+    <i *ngFor="let tab of list" title="{{tab['title']}}" class="{{tab['icon']}}"
+        [ngClass]="(tab['title'] == active)?'active':null" aria-hidden="true" (click)="switchTab(tab['title'])"></i>
+</div>

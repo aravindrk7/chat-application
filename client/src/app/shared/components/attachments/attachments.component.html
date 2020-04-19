@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="heading">
+        <h1>Attachments</h1>
+        <div class="tabs">
+            <app-tab [list]="tabList" [active]="activeTab" (setActiveTab)="switchTab($event)"></app-tab>
+        </div>
+    </div>
+
+    <div class="files" *ngIf="(activeTab == 'Images') && (totalImages != 0)">
+        <ng-container *ngFor="let message of messages">
+            <img *ngIf="message['type'] == 'image'" src="{{message['image']}}" alt="">
+        </ng-container>
+    </div>
+    <div class="files" *ngIf="(activeTab == 'Videos') && (totalVideos != 0)">
+        <ng-container *ngFor="let message of messages">
+            <video *ngIf="message['type'] == 'video'" src=" {{message['video']}}"></video>
+        </ng-container>
+    </div>
+    <div class="files" *ngIf="(activeTab == 'Audios') && (totalAudios != 0)">
+        <ng-container *ngFor="let message of messages">
+            <audio *ngIf="message['type'] == 'audio' " src=" {{message['audio']}}"></audio>
+        </ng-container>
+    </div>
+    <h2 *ngIf="totalImages == 0 && activeTab == 'Images'">No Attachments for Images</h2>
+    <h2 *ngIf="totalVideos == 0 && activeTab == 'Videos'">No Attachments for Videos</h2>
+    <h2 *ngIf="totalAudios == 0 && activeTab == 'Audios'">No Attachments for Audios</h2>
+</div>
