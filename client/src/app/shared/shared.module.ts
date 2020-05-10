@@ -10,11 +10,24 @@ import { SearchComponent } from './components/search/search.component';
 import { TabComponent } from './components/tab/tab.component';
 import { UserActionItemsComponent } from './components/user-action-items/user-action-items.component';
 import { AttachmentsComponent } from './components/attachments/attachments.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @NgModule({
-  declarations: [BadgeComponent, LastseenFormatTimePipe, FormatTimePipe, PopupComponent, DownloadImageComponent, EmojiTrayComponent, SearchComponent, TabComponent, UserActionItemsComponent, AttachmentsComponent],
+  declarations: [
+    BadgeComponent,
+    LastseenFormatTimePipe,
+    FormatTimePipe,
+    PopupComponent,
+    DownloadImageComponent,
+    EmojiTrayComponent,
+    SearchComponent,
+    TabComponent,
+    UserActionItemsComponent,
+    AttachmentsComponent,
+    HeaderComponent
+  ],
   imports: [
     CommonModule
   ],
@@ -28,7 +41,8 @@ import { AttachmentsComponent } from './components/attachments/attachments.compo
     SearchComponent,
     TabComponent,
     UserActionItemsComponent,
-    AttachmentsComponent
+    AttachmentsComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }

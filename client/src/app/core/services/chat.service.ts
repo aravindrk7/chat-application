@@ -28,6 +28,7 @@ export class ChatService {
     return this.http.post(this.endpoint + '/userData', params);
   }
   getUserLatestMessage(user) {
+    console.log("sasas");
     let params = {
       name: user
     }

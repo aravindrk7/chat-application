@@ -3,31 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { ChatModule } from './modules/chat/chat.module';
-import { HeaderComponent } from './core/header/header.component';
 import { DataService } from './core/services/data.service';
-import { RegisterComponent } from './core/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './core/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './modules/home/home.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    HeaderComponent,
-    RegisterComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     ChatModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -36,9 +36,6 @@ export class AttachmentsComponent implements OnChanges {
     this.totalImages = 0;
     this.totalVideos = 0;
     this.totalAudios = 0;
-    console.log(this.totalImages);
-    console.log(this.totalVideos);
-    console.log(this.totalAudios);
     this.messages.forEach(message => {
       if (message.type == 'image') this.totalImages++;
       if (message.type == 'video') this.totalVideos++;

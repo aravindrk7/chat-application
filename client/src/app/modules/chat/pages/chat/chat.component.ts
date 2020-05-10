@@ -69,23 +69,15 @@ export class ChatComponent implements OnInit {
       .subscribe((messages: any) => {
         this.messages = [];
         this.messages = messages;
-        console.log(this.messages);
       });
 
     this.dataService.messengerData.subscribe(messengerData => {
+      console.log(messengerData);
       this.messengerData = messengerData;
     });
   }
 
   sendMessage(message) {
-    // let time = new Date();
-    // this.messages.push({
-    //   from: this.userName,
-    //   text: this.getMessage(message, 'text'),
-    //   image: this.getMessage(message, 'image'),
-    //   audio: this.getMessage(message, 'audio'),
-    //   time: time
-    // });
     this.chatService.sendMessage({
       from: this.userName,
       to: this.messengerData['userName'],
@@ -100,28 +92,6 @@ export class ChatComponent implements OnInit {
   getMessage(message, type) {
     return (message['type'] == type) ? message['content'] : '';
   }
-
-  // sendFile(file) {
-  //   let time = new Date();
-  //   this.messages.push({
-  //     from: this.userName,
-  //     text: '', image: file,
-  //     time: time
-  //   });
-  //   this.chatService.sendFile({
-  //     from: this.userName,
-  //     to: this.messengerData['userName'],
-  //     text: '', image: file,
-  //     time: time
-  //   });
-  // }
-  // sendAudio(file) {
-  //   console.log(file);
-  //   // let time = new Date();
-  //   // this.messages.push({ from: this.userName, text: '', image: file, time: time });
-  //   // console.log({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
-  //   // this.chatService.sendFile({ from: this.userName, to: this.messengerData['userName'], text: '', image: file, time: time });
-  // }
 
   openImage(url, name) {
     fetch(url)

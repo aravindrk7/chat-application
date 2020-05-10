@@ -1,0 +1,39 @@
+@import "./../../../../assets/variables";
+
+.header {
+    display: flex;
+    height: 100%;
+    color: var(--text-primary);
+    padding: 0 10px;
+
+    .user {
+        margin-left: auto;
+        display: flex;
+        .displayPicture {
+            margin-left: 10px;
+            @include center();
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 15px;
+            }
+        }
+        i{
+            cursor: pointer;
+            @include center();
+            padding: 0 10px;
+        }
+        p {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-primary);
+            // font-weight: bold;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 0 5px;
+            // border-right: 1px solid var(--border-color);
+        }
+    }
+}

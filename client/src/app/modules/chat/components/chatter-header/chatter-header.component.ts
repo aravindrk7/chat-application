@@ -19,9 +19,8 @@ export class ChatterHeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let str = 'Aravind###128512';
-    this.test = str.split('###')[0] + String.fromCodePoint(Number(str.split('###')[1]))
     this.dataService.messengerData.subscribe(messengerData => {
+      console.log(messengerData);
       this.messenger = messengerData;
     });
     this.chatService

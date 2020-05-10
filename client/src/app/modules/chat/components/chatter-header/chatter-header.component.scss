@@ -1,20 +1,15 @@
 @import "../../../../../assets/variables";
 .container {
-    padding: 7px 20px;
+    padding: 7px 15px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     background: var(--bg-primary);
-    border-bottom: 2px solid rgb(245, 245, 245);
+    border-bottom: 1px solid var(--border-color);
     .details {
         display: flex;
         .displayPicture {
             margin-right: 10px;
-            // background: var(--bg-primary);
-            // box-shadow: 0 3px 4px var(--shadow);
-            // height: 40px;
-            // width: 40px;
-            // border-radius: 50%;
             transition: 0.5s;
             cursor: pointer;
             &:hover {
@@ -23,15 +18,14 @@
             @include center();
             img {
                 width: 40px;
-                border-radius: 50%;
                 height: 40px;
+                border-radius: 15px;
             }
         }
         .name {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            // padding: 5px 0;
             h3 {
                 font-size: 14px;
             }
@@ -39,7 +33,6 @@
                 font-size: 12px;
                 font-weight: bold;
                 color: var(--text-secondary);
-                
             }
         }
     }
@@ -48,14 +41,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100px;
-        // @include center();
-        // padding: 0 10px;
-        // background: red;
-
-        // padding-right: 0;
         i {
-            // padding: 0 20px;
-            // padding-right: 0;
             font-size: 15px;
             cursor: pointer;
             color: var(--icon-primary);

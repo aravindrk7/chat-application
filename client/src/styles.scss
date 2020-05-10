@@ -17,12 +17,16 @@
 }
 
 :root {
-    --primary-color: #033fb8;
-    // --primary-color: rgb(10, 113, 247);
+    --border-color: rgb(245, 245, 245);
+    --primary-color: #f49d6e;
+    // --primary-color: #089bab;
+    // --primary-color: #033fb8;
+
     --secondary-color: #ebeefd;
 
     --bg-primary: #fff;
-    --bg-secondary: rgb(245, 253, 255);
+    --bg-secondary: #eef7f9;
+    // --bg-secondary: rgb(245, 253, 255);
 
     --shadow: rgb(233, 232, 232);
 
@@ -33,7 +37,7 @@
     // --text-active : #292929;
     // --text-disabled : #292929;
 
-    --icon-primary: #a3a2a2;
+    --icon-primary: #d1d0d0;
     // --icon-secondary : #292929;
     --icon-hover: #292929;
     // --icon-active : #292929;
@@ -50,7 +54,8 @@
 .card {
     color: var(--text-primary);
     background: var(--bg-primary);
-    box-shadow: 0 1px 6px var(--shadow);
+    // box-shadow: 0 1px 6px var(--shadow);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     border-radius: 3px;
 }
 // Scroll

@@ -1,18 +1,22 @@
-@import './../../../../assets/variables';
+@import "./../../../../assets/variables";
 .container {
-    width: 15px;
-    height: 15px;
-    float: right;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
     background: var(--primary-color);
-    margin-top: 5px;
 
     span {
         @include center();
-        align-items: center;
-        font-size: 8px;
+        font-size: 10px;
         color: var(--bg-primary);
         font-weight: bold;
-        padding-top: 2px;
+        padding-top: 4px;
+    }
+}
+
+.active {
+    background: #fff;
+    span {
+        color: var(--primary-color);
     }
 }

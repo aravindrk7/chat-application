@@ -10,7 +10,7 @@ import { AuthenticationService } from '../services/authentication.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   displayPicture: any;
-
+  currentStep: any = 1;
   constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -22,19 +22,25 @@ export class RegisterComponent implements OnInit {
       // displayPicture: ['', Validators.required]
     });
   }
+
+  moveStep(step) {
+    this.currentStep = step;
+  }
+
   uploadImage(image) {
     this.displayPicture = image.files[0];
   }
+
+
   onSubmit() {
-    let params = new FormData();
-    params.append('firstName', this.registerForm.value.firstName);
-    params.append('lastName', this.registerForm.value.lastName);
-    params.append('userName', this.registerForm.value.userName);
-    params.append('password', this.registerForm.value.password);
-    params.append('displayPicture', this.displayPicture);
-    // console.log(this.registerForm);
-    console.log(params);
-    this.authenticationService.registerUser(params).subscribe(response => {
+    let formData = new FormData();
+    formData.append('firstName', this.registerForm.value.firstName);
+    formData.append('lastName', this.registerForm.value.lastName);
+    formData.append('userName', this.registerForm.value.userName);
+    formData.append('password', this.registerForm.value.password);
+    formData.append('displayPicture', this.displayPicture);
+
+    this.authenticationService.registerUser(formData).subscribe(response => {
       console.log(response);
     });
   }

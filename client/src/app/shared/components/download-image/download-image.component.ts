@@ -11,7 +11,6 @@ export class DownloadImageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.src);
   }
 
 }

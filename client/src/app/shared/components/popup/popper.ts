@@ -11,7 +11,6 @@ export class Popper {
 	}
 
 	public open(popup: Popup): void {
-		console.log(popup);
 		this.display = true;
 		this.data = popup['message'];
 		this.heading = popup['heading'];

@@ -27,12 +27,13 @@ export class LoginComponent implements OnInit {
   }
   login() {
     this.authenticationService.loginUser(this.registerForm.value).subscribe(response => {
-      if (response['status'] == 'success') {
+      console.log(response);
+      if (response) {
         this.dataService.updatedUserData({ name: this.registerForm.value.userName });
         this.router.navigate(['/chat']);
       }
       else {
-        alert(response['message']);
+        alert("Invalid Username or Password");
       }
     });
   }

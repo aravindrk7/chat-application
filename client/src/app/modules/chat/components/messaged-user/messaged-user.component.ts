@@ -17,6 +17,7 @@ export class MessagedUserComponent implements OnInit {
     private chatService: ChatService,
   ) {
     this.dataService.userData.subscribe(userData => {
+      console.log(userData);
       this.userData = userData;
     });
   }
@@ -25,9 +26,11 @@ export class MessagedUserComponent implements OnInit {
 
 
     this.chatService.getAllUser(this.userData['name']).subscribe(users => {
-      this.messengerList = users['data'];
-      this.chatService.getUserLatestMessage(this.userData['name']).subscribe(msg => {
-        msg['data'].forEach(msg => {
+      this.messengerList = users;
+      console.log(users);
+      this.chatService.getUserLatestMessage(this.userData['name']).subscribe((msgs: any[]) => {
+        console.log(msgs);
+        msgs.forEach(msg => {
           if (msg) {
             this.messengerList.forEach(messenger => {
               if (messenger['userName'] === msg['from']) {
@@ -43,11 +46,11 @@ export class MessagedUserComponent implements OnInit {
       });
       let params = {
         from: this.userData['name'],
-        to: this.messengerList[1]['userName']
+        to: this.messengerList[0]['userName']
       }
-      this.currentMessenger = this.messengerList[1]['userName'];
+      this.currentMessenger = this.messengerList[0]['userName'];
       this.chatService.getUserMessages(params);
-      this.dataService.updatedCurrentMessenger(this.messengerList[1]);
+      this.dataService.updatedCurrentMessenger(this.messengerList[0]);
     });
 
     this.chatService
@@ -61,7 +64,19 @@ export class MessagedUserComponent implements OnInit {
           }
         });
       });
+
+    this.chatService
+      .userLastSeen()
+      .subscribe((userData: any) => {
+        this.messengerList.forEach(messenger => {
+          if (messenger.userName === userData['userName']) {
+            messenger['lastSeen'] = userData['lastSeen'];
+
+          }
+        });
+      });
   }
+
   openUserMessages(messengerData) {
     this.currentMessenger = messengerData['userName'];
     let params = {
@@ -69,7 +84,7 @@ export class MessagedUserComponent implements OnInit {
       to: messengerData['userName']
     };
     this.chatService.getUserData(messengerData['userName']).subscribe(userData => {
-      this.dataService.updatedCurrentMessenger(userData['data']);
+      this.dataService.updatedCurrentMessenger(userData);
     });
     this.chatService.getUserMessages(params);
 
